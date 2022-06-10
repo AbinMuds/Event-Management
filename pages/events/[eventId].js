@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import EventSummary from "../../components/event-detail/EventSummary";
 import EventLogistics from "../../components/event-detail/EventLogistics";
 import EventContent from "../../components/event-detail/EventContent";
+import ErrorAlert from "../../components/UI/error-alert";
 
 function EventsDetail() {
   const router = useRouter();
@@ -11,7 +12,11 @@ function EventsDetail() {
   const event = getEventById(eventId);
 
   if (!event) {
-    return <p>No event found</p>;
+    return (
+      <ErrorAlert>
+        <p>No event found</p>
+      </ErrorAlert>
+    );
   }
   return (
     <Fragment>
